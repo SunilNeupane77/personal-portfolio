@@ -31,6 +31,7 @@ import right_arrow_white from './right-arrow-white.png';
 import right_arrow from './right-arrow.png';
 import send_icon from './send-icon.png';
 import sun_icon from './sun_icon.png';
+import sunil_neupane from "./sunil.jpg";
 import sunil_logo from "./sunillogo.png";
 import ui_icon from './ui-icon.png';
 import user_image from './user-image.png';
@@ -41,6 +42,7 @@ export const assets = {
     user_image,
     code_icon,
     code_icon_dark,
+    sunil_neupane,
     sunil_logo,
     edu_icon,
     edu_icon_dark,
