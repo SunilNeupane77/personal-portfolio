@@ -7,6 +7,7 @@ import code_icon from "./code-icon.png";
 import download_icon from "./download-icon.png";
 import edu_icon_dark from "./edu-icon-dark.png";
 import edu_icon from "./edu-icon.png";
+import express from "./Expressjs.png";
 import figma from "./figma.png";
 import firebase from "./firebase.png";
 import git from "./git.png";
@@ -22,9 +23,13 @@ import menu_white from "./menu-white.png";
 import mobile_icon from "./mobile-icon.png";
 import mongodb from "./mongodb.png";
 import moon_icon from "./moon_icon.png";
+import mysql from "./MySQL_logo.svg";
+import node_js from "./Node.js_logo.svg";
+import postgresql from "./Postgresql_elephant.svg";
 import profile_img from "./profile-img.png";
 import project_icon_dark from "./project-icon-dark.png";
 import project_icon from "./project-icon.png";
+import react_logo from "./React_Logo_SVG.svg";
 import right_arrow_bold_dark from "./right-arrow-bold-dark.png";
 import right_arrow_bold from "./right-arrow-bold.png";
 import right_arrow_white from "./right-arrow-white.png";
@@ -33,6 +38,7 @@ import send_icon from "./send-icon.png";
 import sun_icon from "./sun_icon.png";
 import sunil_neupane from "./sunil.jpg";
 import sunil_logo from "./sunillogo.png";
+import typescript from "./Typescript.svg";
 import ui_icon from "./ui-icon.png";
 import user_image from "./user-image.png";
 import vscode from "./vscode.png";
@@ -48,6 +54,8 @@ export const assets = {
   edu_icon_dark,
   project_icon,
   project_icon_dark,
+  mysql,
+  postgresql,
   vscode,
   firebase,
   figma,
@@ -64,6 +72,10 @@ export const assets = {
   header_bg_color,
   moon_icon,
   sun_icon,
+  typescript,
+  node_js,
+  express,
+  react_logo,
   arrow_icon,
   arrow_icon_dark,
   menu_black,
@@ -137,13 +149,13 @@ export const infoList = [
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
     title: "Languages and Framework",
-    description: "HTML, CSS, JavaScript React Js, Next Js",
+    description: "C ,HTML, CSS, JavaScript,Java,PHP,React Js, Next Js",
   },
   {
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: "Education",
-    description: "B.Tech in Computer Science",
+    description: "Bachelors in Information Management, Tribhubhan University",
   },
   {
     icon: assets.project_icon,
@@ -155,8 +167,13 @@ export const infoList = [
 
 export const toolsData = [
   assets.vscode,
-  assets.firebase,
-  assets.mongodb,
   assets.figma,
   assets.git,
+  assets.react_logo,
+  assets.typescript,
+  assets.node_js,
+  assets.express,
+  assets.mongodb,
+  assets.mysql,
+  assets.postgresql
 ];
