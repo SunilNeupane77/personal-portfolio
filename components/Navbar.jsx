@@ -81,23 +81,23 @@ const Navbar = ({isDarkMode,setIsDarkMode}) => {
           </button>
           <a
             href="#contact"
-            className="hidden lg:flex items-center justify-center gap-4 px-1 py-1.5 border border-gray-500 rounded-full font-Ovo"
+            className="hidden lg:flex items-center justify-center gap-4 px-1 py-1.5 border border-gray-500 rounded-full font-Ovo dark:border-white/50"
           >
             Connect{" "}
             <Image
-              src={assets.arrow_icon}
+              src={isDarkMode?assets.arrow_icon_dark:assets.arrow_icon}
               alt="arrow icon sunil"
               className="w-3"
             />
           </a>
           <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image src={assets.menu_black} alt="black menu" className="w-6" />
+            <Image src={isDarkMode?assets.menu_white:assets.menu_black} alt="black menu" className="w-6" />
           </button>
         </div>
         {/* Mobile menu */}
-        <ul ref={sideMenuRef} className="flex md:hidden flex-col gap-4 py-20 px-10 fixed right-0 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 transform translate-x-full">
+        <ul ref={sideMenuRef} className="flex md:hidden flex-col gap-4 py-20 px-10 fixed right-0 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 transform translate-x-full dark:bg-darkHover dark:text-white">
           <div className="absolute right-6 top-6" onClick={closeMenu}>
-            <Image src={assets.close_black} alt="close icon" className="w-5 cursor-pointer" />
+            <Image src={isDarkMode? assets.close_white:assets.close_black} alt="close icon" className="w-5 cursor-pointer" />
           </div>
           <li>
             <a className="font-Ovo" onClick={closeMenu} href="#">
