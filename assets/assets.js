@@ -118,29 +118,29 @@ export const workData = [
 export const serviceData = [
   {
     icon: assets.web_icon,
-    title: "Web design",
+    title: "Web Development",
     description: "Web development is the process of building, programming...",
-    link: "",
+    link: "https://github.com/SunilNeupane77",
   },
   {
     icon: assets.mobile_icon,
     title: "Mobile app",
     description:
       "Mobile app development involves creating software for mobile devices...",
-    link: "",
+    link: "https://github.com/SunilNeupane77",
   },
   {
     icon: assets.ui_icon,
     title: "UI/UX design",
     description:
       "UI/UX design focuses on creating a seamless user experience...",
-    link: "",
+    link: "https://github.com/SuniNeupane77",
   },
   {
     icon: assets.graphics_icon,
     title: "Graphics design",
     description: "Creative design solutions to enhance visual communication...",
-    link: "",
+    link: "https://github.com/SunilNeupane77",
   },
 ];
 
@@ -148,20 +148,23 @@ export const infoList = [
   {
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
-    title: "Languages and Framework",
+    title: "Languages and Frameworks",
     description: "C ,HTML, CSS, JavaScript,Java,PHP,React Js, Next Js",
+    link:"https://sdc.tu.edu.np",
   },
   {
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: "Education",
     description: "Bachelors in Information Management, Tribhubhan University",
+    link:"https://www.fomecd.edu.np/",
   },
   {
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
     title: "Projects",
-    description: "Built more than 5 projects",
+    description: " Visit my Github Account",
+    link:"https://github.com/SunilNeupane77",
   },
 ];
 

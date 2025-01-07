@@ -62,8 +62,8 @@ const Contact = () => {
             whileInView={{opacity:1}}
             transition={{delay:0.7,duration:0.5}}
          className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
-          Welcome to my portfolio project , Explore a collection of project
-          showcasing my expertise in different types of project ideas
+       
+Passionate about building innovative software solutions and exploring new technologies. Open to collaborations, technical discussions, or exciting opportunities in development and engineering. Reach out through email, LinkedIn, or GitHub to connect, share ideas, or explore possibilities. Dedicated to creating impactful projects and contributing to the ever-evolving world of technology.
         </motion.p>
         <motion.form
             initial={{opacity:0}}

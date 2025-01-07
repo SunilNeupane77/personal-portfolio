@@ -53,9 +53,12 @@ const About = (isDarkMode) => {
           className="flex-1"
         >
           <p className="mb-10 max-w-2xl font-Ovo">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-            consectetur consequuntur a, ad eligendi voluptatibus, aspernatur
-            nulla, nesciunt reprehenderit tempore accusantium ea labore
+            Currently pursuing a Bachelor’s in Information Management at
+            Shankerdev Campus, 5th semester. Actively learning and gaining
+            expertise in full-stack development, both frontend and backend,
+            while exploring diverse dimensions of technology to broaden skills
+            and innovate. Passionate about problem-solving, building impactful
+            solutions, and staying ahead in the ever-evolving tech landscape.
           </p>
           <motion.ul
             initial={{ opacity: 0 }}
@@ -63,25 +66,28 @@ const About = (isDarkMode) => {
             transition={{ duration: 0.8, delay: 1 }}
             className="grid grid-cols-1 sm:grid-cols-3 gap-6"
           >
-            {infoList.map(({ icon, iconDark, title, description }, index) => (
-              <motion.li
-                whileHover={{ scale: 1.05 }}
-                key={index}
-                className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
-              >
-                <Image
-                  src={isDarkMode ? iconDark : icon}
-                  alt={title}
-                  className="w-7 h-7 mt-3 object-contain"
-                />
-                <h3 className="my-4 font-semibold text-gray-700 dark:text-white">
-                  {title}
-                </h3>
-                <p className="text-gray-600 text-sm  dark:text-white">
-                  {description}
-                </p>
-              </motion.li>
-            ))}
+            {infoList.map(
+              ({ icon, iconDark, title, description, link }, index) => (
+                <motion.li
+                  whileHover={{ scale: 1.05 }}
+                  key={index}
+                  className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50"
+                  onClick={() => (window.location.href = link)}
+                >
+                  <Image
+                    src={icon}
+                    alt={title}
+                    className="w-7 h-7 mt-3 object-contain"
+                  />
+                  <h3 className="my-4 font-semibold text-gray-700 dark:text-white">
+                    {title}
+                  </h3>
+                  <p className="text-gray-600 text-sm  dark:text-white">
+                    {description}
+                  </p>
+                </motion.li>
+              )
+            )}
           </motion.ul>
           <motion.h4
             initial={{ y: 20, opacity: 0 }}
@@ -92,13 +98,14 @@ const About = (isDarkMode) => {
             Tools I Use
           </motion.h4>
           <motion.ul
-             initial={{opacity:0}}
-             whileInView={{opacity:1}}
-             transition={{delay:1.5,duration:0.6}}
-           className="flex flex-wrap items-center gap-4 sm:gap-5">
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 0.6 }}
+            className="flex flex-wrap items-center gap-4 sm:gap-5"
+          >
             {toolsData.map((tool, index) => (
               <motion.li
-              whileHover={{scale:1.1}}
+                whileHover={{ scale: 1.1 }}
                 key={index}
                 className="flex items-center justify-center w-16 h-16 sm:w-15 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:translate-y-1 duration-500 "
               >

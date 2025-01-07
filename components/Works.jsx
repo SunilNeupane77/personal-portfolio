@@ -34,9 +34,10 @@ const Works = (isDarkMode) => {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam porro
-          consequuntur quasi labore accusantium esse. Reiciendis ratione
-          repudiandae tenetur qui?
+          Showcasing innovative software projects focused on solving real-world
+          problems with clean code, efficient design, and scalable solutions.
+          Each project highlights expertise in various technologies, development
+          methodologies, and a commitment to delivering impactful results.
         </motion.p>
 
         <motion.div
@@ -47,8 +48,8 @@ const Works = (isDarkMode) => {
         >
           {workData.map((project, index) => (
             <motion.div
-            whileHover={{scale:1.05}}
-            transition={{duration:0.3}}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
               key={index}
               style={{ backgroundImage: `url(${project.bgImage})` }}
               className="aspect-square bg-no-repeat bg-center rounded-lg relative cursor-pointer group"
@@ -75,9 +76,9 @@ const Works = (isDarkMode) => {
         </motion.div>
         <div>
           <motion.a
-               initial={{opacity:0}}
-               whileInView={{opacity:1}}
-               transition={{delay:1.1,duration:0.5}}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 1.1, duration: 0.5 }}
             className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500  dark:text-white dark:border-white dark:hover:bg-darkHover"
             href=""
           >
