@@ -90,6 +90,7 @@ export const assets = {
   send_icon,
   right_arrow_bold,
   right_arrow_bold_dark,
+  
 };
 
 export const workData = [
