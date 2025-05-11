@@ -1,5 +1,4 @@
 import { assets } from "@/assets/assets";
-import { Moon, Sun } from 'lucide-react';
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -13,6 +12,13 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
 
   const closeMenu = () => {
     sideMenuRef.current.style.transform = "translateX(100%)";
+  };
+
+  const handleNavClick = (id) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
@@ -53,28 +59,35 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
         </a>
         <ul className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-md bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent">
           <li>
-            <a className="font-Ovo hover:text-blue-500" href="#">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo hover:text-blue-500" href="#about">
+            <a
+              className="font-Ovo hover:text-red-500 hover:font-bold transition-all duration-300 cursor-pointer"
+              onClick={() => handleNavClick("#about")}
+            >
               About
             </a>
           </li>
           <li>
-            <a className="font-Ovo hover:text-blue-500" href="#services">
+            <a
+              className="font-Ovo hover:text-red-500 hover:font-bold transition-all duration-300 cursor-pointer"
+              onClick={() => handleNavClick("#services")}
+            >
               Services
             </a>
           </li>
           <li>
-            <a className="font-Ovo hover:text-blue-500" href="#work">
+            <a
+              className="font-Ovo hover:text-red-500 hover:font-bold transition-all duration-300 cursor-pointer"
+              onClick={() => handleNavClick("#work")}
+            >
               My Work
             </a>
           </li>
           <li>
-            <a className="font-Ovo hover:text-blue-500" href="#contact">
-              Contact me
+            <a
+              className="font-Ovo hover:text-red-500 hover:font-bold transition-all duration-300 cursor-pointer"
+              onClick={() => handleNavClick("#contact")}
+            >
+              Contact
             </a>
           </li>
         </ul>
@@ -83,11 +96,11 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
             className="w-8 h-8 flex items-center justify-center rounded-full transition-all duration-300"
             onClick={() => setIsDarkMode((prev) => !prev)}
           >
-            {isDarkMode ? (
-              <Sun className="w-5 h-5" />
-            ) : (
-              <Moon className="w-5 h-5" />
-            )}
+            <Image
+              src={isDarkMode ? assets.sun_icon : assets.moon_icon}
+              alt="mode toggle icon"
+              className="w-5 h-5"
+            />
           </button>
           <a
             href="#contact"
@@ -100,55 +113,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
               className="w-3"
             />
           </a>
-          <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image
-              src={isDarkMode ? assets.menu_white : assets.menu_black}
-              alt="menu icon"
-              className="w-6"
-            />
-          </button>
         </div>
-        {/* Mobile menu */}
-        <ul
-          ref={sideMenuRef}
-          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed right-0 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 transform translate-x-full dark:bg-darkHover dark:text-white"
-        >
-          <div
-            className="absolute right-6 top-6 cursor-pointer"
-            onClick={closeMenu}
-          >
-            <Image
-              src={isDarkMode ? assets.close_white : assets.close_black}
-              alt="close icon"
-              className="w-5"
-            />
-          </div>
-          <li>
-            <a className="font-Ovo hover:text-blue-500" onClick={closeMenu} href="#">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo hover:text-blue-500" onClick={closeMenu} href="#about">
-              About
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo hover:text-blue-500" onClick={closeMenu} href="#services">
-              Services
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo hover:text-blue-500" onClick={closeMenu} href="#work">
-              My Work
-            </a>
-          </li>
-          <li>
-            <a className="font-Ovo hover:text-blue-500" onClick={closeMenu} href="#contact">
-              Contact me
-            </a>
-          </li>
-        </ul>
       </nav>
     </>
   );

@@ -97,27 +97,22 @@ export const workData = [
   {
     title: "Portfolio Project",
     description: "Web Development",
-    bgImage: "",
+    bgImage: "/work-1.png",
   },
   {
     title: "E-Commerce Project",
     description: "Web App",
-    bgImage: "",
+    bgImage: "/work-2.png",
   },
   {
     title: "School Website",
     description: "Web Design",
-    bgImage: "",
-  },
-  {
-    title: "UI/UX designing",
-    description: "UI/UX Design",
-    bgImage: "",
+    bgImage: "/work-3.png",
   },
   {
     title: "New Internet Photo Project",
     description: "Modern Design",
-    bgImage: "https://via.placeholder.com/600x400", // Example image URL
+    bgImage: "/work-4.png",
   },
 ];
 
