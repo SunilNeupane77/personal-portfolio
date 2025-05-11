@@ -5,3 +5,50 @@
 *{
   font-family: Outfit;
 }
+
+/* Updated global styles for modern green and blue color scheme */
+:root {
+  --color-primary: #1E90FF; /* Blue */
+  --color-secondary: #32CD32; /* Green */
+  --color-background: #F0F8FF; /* Light Blue */
+  --color-text: #333333; /* Dark Gray */
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add modern button styles */
+button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-secondary);
+}
+
+/* Add specific styles for the mode toggle button */
+.mode-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mode-toggle:hover {
+  background: none;
+}

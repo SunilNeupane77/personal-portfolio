@@ -1,18 +1,19 @@
 import { assets } from "@/assets/assets";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const Header = () => {
   return (
-    <div className="w-11/12 max-w3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4  ">
+    <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-gray-800 to-black text-white">
       <motion.div
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+        className="shadow-lg rounded-full overflow-hidden"
       >
         <Image
           src={assets.sunil_neupane}
-          alt="photo of sunil Neupane"
+          alt="photo of Sunil Neupane"
           className="rounded-full w-32"
         />
       </motion.div>
@@ -21,35 +22,36 @@ const Header = () => {
         initial={{ y: -20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="flex itams-end gap-2 text-xl md:text-2xl mb-3 font-Ovo"
+        className="flex items-center gap-2 text-xl md:text-2xl mb-3 font-Ovo"
       >
-        Hello I'm Sunil Neupane{" "}
-        <Image src={assets.hand_icon} alt="handicon" className="w-6" />
+        Hello, I'm Sunil Neupane{" "}
+        <Image src={assets.hand_icon} alt="hand icon" className="w-6" />
       </motion.h3>
       <motion.h1
         initial={{ y: -30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo "
+        className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo font-bold"
       >
         Full-Stack Software Developer <br /> Tech Enthusiast
       </motion.h1>
-      <motion.p 
-        initial={{opacity:0}}
-        whileInView={{opacity:1}}
-        transition={{duration:0.6,delay:0.7}}
-      className="max-w-2xl mx-auto font-Ovo">
-        Emerging software developer Passioante on Tech
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.7 }}
+        className="max-w-2xl mx-auto font-Ovo text-gray-300"
+      >
+        Emerging software developer passionate about technology and innovation.
       </motion.p>
-      <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 ">
+      <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
         <motion.a
-          initial={{y:-30,opacity:0}}
-          whileInView={{y:0,opacity:1}}
-          transition={{duration:0.6,delay:1}}
+          initial={{ y: -30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1 }}
           href="#contact"
-          className="px-10 py-3 border border-white rounded-full bg-black text-white flex items-center gap-2 dark:bg-transparent"
+          className="px-10 py-3 border border-white rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white flex items-center gap-2 shadow-lg hover:scale-105 transition-transform"
         >
-          Contact me{" "}
+          Contact Me{" "}
           <Image
             src={assets.right_arrow_white}
             alt="right arrow"
@@ -57,12 +59,12 @@ const Header = () => {
           />
         </motion.a>
         <motion.a
-         initial={{y:-30,opacity:0}}
-         whileInView={{y:0,opacity:1}}
-         transition={{duration:0.6,delay:1.2}}
+          initial={{ y: -30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
           href="/sample-resume.pdf"
           download
-          className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
+          className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white text-black shadow-lg hover:scale-105 transition-transform"
         >
           My Resume
           <Image
