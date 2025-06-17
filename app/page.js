@@ -9,12 +9,7 @@ import Works from "@/components/Works";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-/**
- * Home component that renders the main sections of the portfolio website.
- *
- * @component
- * @returns {JSX.Element} The rendered Home component.
- */
+
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
@@ -45,14 +40,15 @@ export default function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="min-h-screen flex flex-col justify-between bg-gradient-to-r from-blue-500 to-green-500 dark:from-gray-800 dark:to-gray-900"
+      className="min-h-screen flex flex-col justify-between"
     >
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Header isDarkMode={isDarkMode} />
       <motion.div
-        initial={{ y: 50, opacity: 0 }}
+        initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 1 }}
+        transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+        className="flex-1"
       >
         <About isDarkMode={isDarkMode} />
         <Services isDarkMode={isDarkMode} />
