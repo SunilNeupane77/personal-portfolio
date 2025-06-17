@@ -6,12 +6,15 @@
   font-family: Outfit;
 }
 
-/* Updated global styles for modern green and blue color scheme */
+/* Modern UI color scheme with stylish gradients */
 :root {
-  --color-primary: #1E90FF; /* Blue */
-  --color-secondary: #32CD32; /* Green */
-  --color-background: #F0F8FF; /* Light Blue */
-  --color-text: #333333; /* Dark Gray */
+  --color-primary: #2563eb; /* Rich Blue */
+  --color-secondary: #10b981; /* Emerald Green */
+  --color-accent: #8b5cf6; /* Purple */
+  --color-background: #f9fafb; /* Light Gray */
+  --color-background-dark: #111827; /* Dark Background */
+  --color-text: #1f2937; /* Dark Gray */
+  --color-text-light: #f3f4f6; /* Light Text */
 }
 
 body {
@@ -20,35 +23,73 @@ body {
   font-family: 'Outfit', sans-serif;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
-/* Add modern button styles */
+/* Modern button styles with smooth transitions */
 button {
   background-color: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
+  border-radius: 12px;
+  padding: 12px 24px;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1);
 }
 
 button:hover {
   background-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(16, 185, 129, 0.2);
 }
 
-/* Add specific styles for the mode toggle button */
+/* Glass morphism effect classes */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+}
+
+/* Dark mode specific styles */
+.dark .glass-card {
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mode toggle button styles */
 .mode-toggle {
   background: none;
   border: none;
-  padding: 0;
+  padding: 8px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
 }
 
 .mode-toggle:hover {
-  background: none;
+  background: rgba(255, 255, 255, 0.1);
 }

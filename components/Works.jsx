@@ -1,5 +1,5 @@
 import { assets, workData } from "@/assets/assets";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const Works = ({ isDarkMode }) => {
@@ -52,25 +52,30 @@ const Works = ({ isDarkMode }) => {
               transition={{ duration: 0.3 }}
               key={index}
               style={{ backgroundImage: `url(${project.bgImage})` }}
-              className="aspect-square bg-cover bg-center rounded-lg relative cursor-pointer group shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="aspect-square bg-cover bg-center rounded-xl relative cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden"
             >
-              <div className="bg-white w-10/12 rounded-md absolute bottom-2 left-1/2 transform -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-4">
+              {/* Glass effect overlay that appears on hover */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Project info card with glass effect */}
+              <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md w-10/12 rounded-lg absolute bottom-4 left-1/2 transform -translate-x-1/2 py-4 px-5 flex items-center justify-between shadow-lg transition-all duration-500 group-hover:bottom-8 group-hover:bg-white/95 dark:group-hover:bg-gray-800/95">
                 <div>
-                  <h2 className="font-semibold text-gray-800 dark:text-gray-100">
+                  <h2 className="font-semibold text-gray-800 dark:text-white">
                     {project.title}
                   </h2>
-                  <p className="text-sm text-gray-700 dark:text-gray-400">
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
                     {project.description}
                   </p>
                 </div>
                 <div
-                  className="border rounded-full px-1 py-1 border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-blue-500 dark:group-hover:bg-green-500 transition-all duration-300"
+                  className="border rounded-full p-2 border-blue-500 dark:border-green-500 w-10 aspect-square flex items-center justify-center bg-white dark:bg-gray-800 shadow-lg group-hover:bg-blue-500 dark:group-hover:bg-green-500 transition-all duration-300 group-hover:scale-110"
                 >
                   <Image
                     src={assets.send_icon}
                     alt="send icon"
-                    width={24}
-                    height={24}
+                    width={20}
+                    height={20}
+                    className="group-hover:filter group-hover:brightness-200 transition-all"
                   />
                 </div>
               </div>
@@ -79,22 +84,18 @@ const Works = ({ isDarkMode }) => {
         </motion.div>
         <div>
           <motion.a
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.5 }}
-            className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-blue-500 hover:text-white dark:text-white dark:border-white dark:hover:bg-green-500 dark:hover:text-black transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            className="w-max flex items-center justify-center gap-3 text-white bg-gradient-to-r from-blue-500 to-blue-700 dark:from-green-500 dark:to-green-700 rounded-full py-3.5 px-10 mx-auto my-20 shadow-lg hover:shadow-blue-500/20 dark:hover:shadow-green-500/20 transition-all duration-300"
             href="#"
           >
-            Show More
-            <Image
-              src={
-                isDarkMode
-                  ? assets.right_arrow_bold_dark
-                  : assets.right_arrow_bold
-              }
-              alt="right arrow bold"
-              className="w-4"
-            />
+            Show More Projects
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
           </motion.a>
         </div>
       </motion.div>
