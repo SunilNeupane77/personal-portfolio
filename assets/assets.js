@@ -95,24 +95,44 @@ export const assets = {
 
 export const workData = [
   {
-    title: "Portfolio Project",
-    description: "Web Development",
-    bgImage: "/work-1.png",
+    title: "Likhit Mock",
+    description: "Driving License Mock Test web application for exam preparation.",
+    points: [
+      "Simulates real driving license written tests.",
+      "Instant feedback and scoring.",
+      "Responsive and user-friendly interface."
+    ],
+    url: "https://github.com/SunilNeupane77/likhit-mock"
   },
   {
     title: "E-Commerce Project",
-    description: "Web App",
-    bgImage: "/work-2.png",
+    description: "A modern web app for online shopping.",
+    points: [
+      "Product catalog with search and filter.",
+      "Shopping cart and secure checkout.",
+      "Admin dashboard for inventory management."
+    ],
+    url: "https://github.com/SunilNeupane77/ecommerce"
   },
   {
-    title: "School Website",
-    description: "Web Design",
-    bgImage: "/work-3.png",
+    title: "Academic Organizer",
+    description: "Student organizer for managing assignments and schedules.",
+    points: [
+      "Task and deadline tracking.",
+      "Calendar integration.",
+      "Notifications and reminders."
+    ],
+    url: "https://github.com/SunilNeupane77/academic-organizer"
   },
   {
-    title: "New Internet Photo Project",
-    description: "Modern Design",
-    bgImage: "/work-4.png",
+    title: "Internet Photo Project",
+    description: "A modern design project for sharing and discovering photos.",
+    points: [
+      "Photo upload and sharing.",
+      "User profiles and collections.",
+      "Like and comment features."
+    ],
+    url: "https://github.com/SunilNeupane77/photo-project"
   },
 ];
 
@@ -135,7 +155,7 @@ export const serviceData = [
     title: "UI/UX design",
     description:
       "UI/UX design focuses on creating a seamless user experience...",
-    link: "https://github.com/SuniNeupane77",
+    link: "https://github.com/SunilNeupane77",
   },
   {
     icon: assets.graphics_icon,
