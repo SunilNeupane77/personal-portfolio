@@ -26,17 +26,25 @@ const About = ({ isDarkMode }) => {
     calculateStatus();
   }, []);
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       id="about"
-      className="w-full px-4 md:px-[8%] xl:px-[12%] py-20 scroll-mt-20 bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-blue-950 overflow-hidden relative"
+      className="w-full px-4 md:px-[8%] xl:px-[12%] py-24 scroll-mt-20 bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-blue-950 overflow-hidden relative"
     >
-      {/* Background decorative elements */}
-      <div className="absolute bottom-0 left-0 w-full h-full opacity-10 z-0 overflow-hidden">
+      {/* Enhanced background decorative elements */}
+      <div className="absolute inset-0 w-full h-full opacity-10 z-0 overflow-hidden">
+        <div className="absolute top-[10%] right-[15%] w-64 h-64 rounded-full bg-purple-300 dark:bg-purple-700 filter blur-3xl"></div>
         <div className="absolute bottom-[20%] left-[5%] w-80 h-80 rounded-full bg-green-300 dark:bg-green-700 filter blur-3xl"></div>
+        <div className="absolute top-[40%] left-[30%] w-40 h-40 rounded-full bg-blue-300 dark:bg-blue-700 filter blur-2xl"></div>
       </div>
       
       <div className="relative z-10">
@@ -44,15 +52,15 @@ const About = ({ isDarkMode }) => {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="block text-center mb-2 font-medium text-blue-600 dark:text-blue-400"
+          className="block text-center mb-2 font-medium text-blue-600 dark:text-blue-400 tracking-wider"
         >
-          Introduction
+          INTRODUCTION
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center text-4xl md:text-5xl font-Ovo font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-500 bg-clip-text text-transparent mb-14"
+          className="text-center text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-500 bg-clip-text text-transparent mb-14"
         >
           About Me
         </motion.h2>
@@ -70,13 +78,26 @@ const About = ({ isDarkMode }) => {
           transition={{ duration: 0.6 }}
           className="w-64 sm:w-80 rounded-3xl max-w-none relative z-10"
         >
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-600 blur-lg opacity-30 transform -rotate-6"></div>
+          {/* Enhanced image effects */}
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-600 blur-lg opacity-30 transform -rotate-6 animate-pulse"></div>
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-purple-500 to-pink-600 blur-lg opacity-20 transform rotate-3 animate-pulse" style={{ animationDelay: "1s" }}></div>
           <Image
             src={assets.sunil_neupane}
             alt="user image"
             className="w-full rounded-3xl border-4 border-white dark:border-gray-800 shadow-xl relative z-20"
           />
+          
+          {/* Profile badge */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8, duration: 0.4 }}
+            className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 rounded-full px-4 py-2 shadow-lg z-30 border border-gray-100 dark:border-gray-700"
+          >
+            <span className="text-blue-600 dark:text-blue-400 font-medium">Sunil Neupane</span>
+          </motion.div>
         </motion.div>
+        
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -87,9 +108,9 @@ const About = ({ isDarkMode }) => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="mb-10 glass-card p-6 dark:bg-gray-800/40"
+            className="mb-10 backdrop-blur-md bg-white/70 dark:bg-gray-800/40 p-6 rounded-2xl shadow-lg border border-gray-100/80 dark:border-gray-700/30"
           >
-            <p className="font-Ovo text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               Currently pursuing a Bachelor's in Information Management at
               Shankerdev Campus, {status}. Actively learning and gaining
               expertise in full-stack development, both frontend and backend,
@@ -98,7 +119,8 @@ const About = ({ isDarkMode }) => {
               solutions, and staying ahead in the ever-evolving tech landscape.
             </p>
           </motion.div>
-          <div className="inline-block mb-8 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-800 dark:text-blue-300 font-medium">
+          
+          <div className="inline-block mb-8 px-5 py-2.5 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-800 dark:text-blue-300 font-medium shadow-sm border border-blue-200/50 dark:border-blue-700/30">
             Status: {status}
           </div>
           <motion.ul
