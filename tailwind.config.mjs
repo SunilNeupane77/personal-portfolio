@@ -26,9 +26,38 @@ export default {
         Outfit: ["Outfit", "sans-serif"],
         Ovo: ["Ovo", "serif"]
       },
+      animation: {
+        'wave': 'wave 2.5s infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'spin-slow': 'spin-slow 12s linear infinite',
+        'spin-slow-reverse': 'spin-slow-reverse 15s linear infinite',
+      },
+      keyframes: {
+        'wave': {
+          '0%': { transform: 'rotate(0deg)' },
+          '10%': { transform: 'rotate(14deg)' },
+          '20%': { transform: 'rotate(-8deg)' },
+          '30%': { transform: 'rotate(14deg)' },
+          '40%': { transform: 'rotate(-4deg)' },
+          '50%': { transform: 'rotate(10deg)' },
+          '60%, 100%': { transform: 'rotate(0deg)' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0px) translateX(0px)' },
+          '50%': { transform: 'translateY(-20px) translateX(10px)' },
+        },
+        'spin-slow': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'spin-slow-reverse': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(-360deg)' },
+        },
+      },
       boxShadow: {
         "black": "4px 4px 0 #000",
-        "white": "$px 4px 0 #fff"
+        "white": "4px 4px 0 #fff"
       },
       gridTemplateColumns: {
         "auto": "repeat(auto-fit,minmax(200px,1fr))"
