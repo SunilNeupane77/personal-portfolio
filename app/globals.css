@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  font-family: Outfit;
+* {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Modern UI color scheme with stylish gradients */
@@ -17,18 +17,73 @@
   --color-text-light: #f3f4f6; /* Light Text */
 }
 
+/* Custom animations */
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-20px) translateX(10px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-slow-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Utility classes for animations */
+.animate-wave {
+  animation: wave 2.5s infinite;
+  transform-origin: 70% 70%;
+  will-change: transform;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+  will-change: transform;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 15s linear infinite;
+  will-change: transform;
+}
+
 body {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  font-family: 'Outfit', sans-serif;
+  background-color: var(--color-background, #f9fafb);
+  color: var(--color-text, #1f2937);
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
 }
 
+.dark body {
+  background-color: var(--color-background-dark, #111827);
+  color: var(--color-text-light, #f3f4f6);
+}
+
 /* Modern button styles with smooth transitions */
 button {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary, #2563eb);
   color: white;
   border: none;
   border-radius: 12px;
@@ -41,18 +96,24 @@ button {
 }
 
 button:hover {
-  background-color: var(--color-secondary);
+  background-color: var(--color-secondary, #10b981);
   transform: translateY(-2px);
   box-shadow: 0 6px 10px rgba(16, 185, 129, 0.2);
 }
 
-/* Glass morphism effect classes */
+/* Glassmorphism effect classes */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.08);
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.5); /* Fallback for unsupported browsers */
+  }
 }
 
 .glass-card {
@@ -66,6 +127,12 @@ button:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+@supports not (backdrop-filter: blur(10px)) {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.9); /* Fallback for unsupported browsers */
+  }
+}
+
 .glass-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
@@ -74,7 +141,13 @@ button:hover {
 /* Dark mode specific styles */
 .dark .glass-card {
   background: rgba(17, 24, 39, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .dark .glass-card {
+    background: rgba(17, 24, 39, 0.9); /* Fallback for dark mode */
+  }
 }
 
 /* Mode toggle button styles */
@@ -92,4 +165,39 @@ button:hover {
 
 .mode-toggle:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* GSAP helper classes */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+}
+
+.reveal {
+  opacity: 0;
+  will-change: opacity;
+}
+
+.parallax {
+  will-change: transform;
+}
+
+/* Sticky nav backdrop for scrolled state */
+.nav-backdrop {
+  backdrop-filter: saturate(180%) blur(10px);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.dark .nav-backdrop {
+  background: rgba(17, 24, 39, 0.55);
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .nav-backdrop {
+    background: rgba(255, 255, 255, 0.8); /* Fallback for light mode */
+  }
+  .dark .nav-backdrop {
+    background: rgba(17, 24, 39, 0.8); /* Fallback for dark mode */
+  }
 }
