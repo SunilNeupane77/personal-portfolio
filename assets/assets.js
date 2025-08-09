@@ -102,7 +102,7 @@ export const workData = [
       "Instant feedback and scoring.",
       "Responsive and user-friendly interface."
     ],
-    url: "https://github.com/SunilNeupane77/likhit-mock"
+    url: "https://likhit-mock.vercel.app/"
   },
   {
     title: "E-Commerce Project",
@@ -112,8 +112,7 @@ export const workData = [
       "Shopping cart and secure checkout.",
       "Admin dashboard for inventory management."
     ],
-    url: "https://github.com/SunilNeupane77/ecommerce"
-  },
+    url: "https://github.com/SunilNeupane77"  },
   {
     title: "Academic Organizer",
     description: "Student organizer for managing assignments and schedules.",
@@ -122,7 +121,7 @@ export const workData = [
       "Calendar integration.",
       "Notifications and reminders."
     ],
-    url: "https://github.com/SunilNeupane77/academic-organizer"
+    url: "https://spm-rho.vercel.app/"
   },
   {
     title: "Internet Photo Project",
@@ -132,7 +131,7 @@ export const workData = [
       "User profiles and collections.",
       "Like and comment features."
     ],
-    url: "https://github.com/SunilNeupane77/photo-project"
+    url: "https://github.com/SunilNeupane77/"
   },
 ];
 
