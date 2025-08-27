@@ -1,190 +1,230 @@
 import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, Github, Linkedin, Twitter, Heart, ArrowUp } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const socialLinks = [
+    {
+      name: "GitHub",
+      icon: Github,
+      url: "https://github.com/sunilneupane",
+      color: "hover:text-gray-300"
+    },
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      url: "https://linkedin.com/in/sunilneupane",
+      color: "hover:text-blue-400"
+    },
+    {
+      name: "Twitter",
+      icon: Twitter,
+      url: "https://twitter.com/sunilneupane",
+      color: "hover:text-sky-400"
+    }
+  ];
+
+  const quickLinks = [
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#work" },
+    { name: "Contact", href: "#contact" }
+  ];
+
   return (
-    <footer className="mt-20 bg-gradient-to-b from-gray-900 to-gray-950 text-white relative overflow-hidden">
-      {/* Modern background elements */}
+    <footer className="relative mt-20 bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white overflow-hidden">
+      {/* Enhanced background elements */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-24 bg-blue-500 blur-[100px]" />
-        <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-purple-700 blur-[80px]" />
-        <div className="absolute bottom-20 left-1/4 w-40 h-40 rounded-full bg-cyan-500 blur-[60px]" />
+        <motion.div 
+          animate={{ 
+            rotate: 360,
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ 
+            rotate: { duration: 60, repeat: Infinity, ease: "linear" },
+            scale: { duration: 12, repeat: Infinity, ease: "easeInOut" }
+          }}
+          className="absolute top-0 left-0 w-full h-32 bg-gradient-to-r from-blue-500 to-cyan-500 blur-[120px]"
+        />
+        <motion.div 
+          animate={{ 
+            rotate: -360,
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ 
+            rotate: { duration: 80, repeat: Infinity, ease: "linear" },
+            scale: { duration: 15, repeat: Infinity, ease: "easeInOut" }
+          }}
+          className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-gradient-to-r from-purple-700 to-pink-700 blur-[100px]"
+        />
+        <motion.div 
+          animate={{ 
+            rotate: 360,
+            scale: [1, 1.3, 1]
+          }}
+          transition={{ 
+            rotate: { duration: 45, repeat: Infinity, ease: "linear" },
+            scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+          }}
+          className="absolute bottom-20 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 blur-[80px]"
+        />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-20 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Logo and contact */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
-            <div className="font-extrabold text-2xl tracking-widest bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent drop-shadow-lg uppercase">
-              SUNIL NEUPANE
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"
+        >
+          {/* Brand & Description */}
+          <motion.div variants={itemVariants} className="lg:col-span-2 space-y-6">
+            <div className="space-y-4">
+              <motion.h3 
+                whileHover={{ scale: 1.05 }}
+                className="font-extrabold text-3xl tracking-widest bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent drop-shadow-lg uppercase cursor-default"
+              >
+                Sunil Neupane
+              </motion.h3>
+              <p className="text-gray-300 max-w-md leading-relaxed">
+                Building modern web experiences with clean code and thoughtful user experiences. 
+                Passionate about creating digital solutions that make a difference.
+              </p>
             </div>
-            <p className="text-gray-400 max-w-xs">
-              Building modern web experiences with clean code and thoughtful user experiences.
-            </p>
-            <div className="flex items-center gap-3 text-gray-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-blue-400"
+
+            {/* Contact Info */}
+            <div className="space-y-3">
+              <motion.div 
+                whileHover={{ x: 5 }}
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300"
               >
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              <span>9860137848</span>
-            </div>
-            <div className="flex items-center gap-3 text-gray-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-blue-400"
+                <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                  <Phone className="w-4 h-4 text-blue-400" />
+                </div>
+                <span>+977 9860137848</span>
+              </motion.div>
+              
+              <motion.div 
+                whileHover={{ x: 5 }}
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300"
               >
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <a
-                href="mailto:sunilneupane957@gmail.com"
-                className="hover:text-blue-300 transition-colors"
+                <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
+                  <Mail className="w-4 h-4 text-green-400" />
+                </div>
+                <span>sunilneupane957@gmail.com</span>
+              </motion.div>
+              
+              <motion.div 
+                whileHover={{ x: 5 }}
+                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300"
               >
-                sunilneupane957@gmail.com
-              </a>
+                <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                  <MapPin className="w-4 h-4 text-purple-400" />
+                </div>
+                <span>Kathmandu, Nepal</span>
+              </motion.div>
             </div>
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-6"
-          >
-            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
-            <ul className="space-y-3">
-              {["About", "Projects", "Contact", "Resume"].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="w-3 h-3"
-                    >
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                    {item}
-                  </a>
-                </li>
+          <motion.div variants={itemVariants} className="space-y-6">
+            <h4 className="text-xl font-bold text-white">Quick Links</h4>
+            <div className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <motion.a
+                  key={index}
+                  href={link.href}
+                  whileHover={{ x: 5 }}
+                  className="block text-gray-300 hover:text-white transition-colors duration-300"
+                >
+                  {link.name}
+                </motion.a>
               ))}
-            </ul>
+            </div>
           </motion.div>
 
           {/* Social Links */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-6"
-          >
-            <h3 className="text-lg font-semibold text-white">Connect</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  target="_blank"
-                  href="https://github.com/SunilNeupane77"
-                  rel="noreferrer"
-                  className="px-3 py-1.5 rounded-md hover:bg-blue-600/20 transition-all duration-300 text-gray-300 hover:text-white flex items-center gap-2"
-                >
-                  {/* GitHub Icon */}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87..."></path>
-                  </svg>
-                  Github
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  href="https://www.linkedin.com/in/sunilneupane77"
-                  rel="noreferrer"
-                  className="px-3 py-1.5 rounded-md hover:bg-blue-600/20 transition-all duration-300 text-gray-300 hover:text-white flex items-center gap-2"
-                >
-                  {/* LinkedIn Icon */}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M16 8a6 6..."></path>
-                  </svg>
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  href="https://x.com/sunilneupane778"
-                  rel="noreferrer"
-                  className="px-3 py-1.5 rounded-md hover:bg-blue-600/20 transition-all duration-300 text-gray-300 hover:text-white flex items-center gap-2"
-                >
-                  {/* Twitter Icon */}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 4s-.7 2.1..."></path>
-                  </svg>
-                  Twitter
-                </a>
-              </li>
-            </ul>
+          <motion.div variants={itemVariants} className="space-y-6">
+            <h4 className="text-xl font-bold text-white">Connect</h4>
+            <div className="space-y-4">
+              {socialLinks.map((social, index) => {
+                const IconComponent = social.icon;
+                return (
+                  <motion.a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ x: 5, scale: 1.05 }}
+                    className={`flex items-center gap-3 text-gray-300 ${social.color} transition-all duration-300`}
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors duration-300">
+                      <IconComponent className="w-4 h-4" />
+                    </div>
+                    <span>{social.name}</span>
+                  </motion.a>
+                );
+              })}
+            </div>
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* Footer bottom */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        {/* Divider */}
+        <motion.div 
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col md:flex-row items-center justify-between border-t border-gray-800 mt-16 pt-8 pb-2"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-8"
+        />
+
+        {/* Bottom Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex flex-col md:flex-row items-center justify-center gap-6"
         >
-          <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            © {currentYear} Sunil Neupane. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-gray-500 hover:text-gray-300 transition-colors text-sm">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-gray-500 hover:text-gray-300 transition-colors text-sm">
-              Terms of Service
-            </a>
-            <a href="#" className="text-gray-500 hover:text-gray-300 transition-colors text-sm">
-              Sitemap
-            </a>
-          </div>
+          {/* Back to Top Button */}
+          <motion.button
+            onClick={scrollToTop}
+            whileHover={{ scale: 1.1, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-full text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <ArrowUp className="w-4 h-4" />
+            <span>Back to Top</span>
+          </motion.button>
         </motion.div>
       </div>
     </footer>

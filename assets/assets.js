@@ -102,7 +102,9 @@ export const workData = [
       "Instant feedback and scoring.",
       "Responsive and user-friendly interface."
     ],
-    url: "https://likhit-mock.vercel.app/"
+    technologies: ["React", "JavaScript", "CSS3", "HTML5"],
+    url: "https://likhit-mock.vercel.app/",
+    github: "https://github.com/SunilNeupane77"
   },
   {
     title: "E-Commerce Project",
@@ -112,7 +114,10 @@ export const workData = [
       "Shopping cart and secure checkout.",
       "Admin dashboard for inventory management."
     ],
-    url: "https://github.com/SunilNeupane77"  },
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
+    url: "https://github.com/SunilNeupane77",
+    github: "https://github.com/SunilNeupane77"
+  },
   {
     title: "Academic Organizer",
     description: "Student organizer for managing assignments and schedules.",
@@ -121,7 +126,9 @@ export const workData = [
       "Calendar integration.",
       "Notifications and reminders."
     ],
-    url: "https://spm-rho.vercel.app/"
+    technologies: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
+    url: "https://spm-rho.vercel.app/",
+    github: "https://github.com/SunilNeupane77"
   },
   {
     title: "Internet Photo Project",
@@ -131,7 +138,9 @@ export const workData = [
       "User profiles and collections.",
       "Like and comment features."
     ],
-    url: "https://github.com/SunilNeupane77/"
+    technologies: ["React", "Firebase", "CSS3", "JavaScript"],
+    url: "https://github.com/SunilNeupane77/",
+    github: "https://github.com/SunilNeupane77/"
   },
 ];
 
@@ -169,7 +178,7 @@ export const infoList = [
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
     title: "Languages and Frameworks",
-    description: "C ,HTML, CSS, JavaScript,Java,PHP,React Js, Next Js",
+    description: "C, HTML, CSS, JavaScript, Java, PHP, React Js, Next Js",
     link:"https://sdc.tu.edu.np",
   },
   {
@@ -183,20 +192,26 @@ export const infoList = [
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
     title: "Projects",
-    description: " Visit my Github Account",
+    description: "Visit my Github Account",
     link:"https://github.com/SunilNeupane77",
   },
 ];
 
 export const toolsData = [
-  assets.vscode,
-  assets.figma,
-  assets.git,
-  assets.react_logo,
-  assets.typescript,
-  assets.node_js,
-  assets.express,
-  assets.mongodb,
-  assets.mysql,
-  assets.postgresql
+  {
+    title: "Frontend",
+    tools: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"]
+  },
+  {
+    title: "Backend",
+    tools: ["Node.js", "Express.js", "PHP", "Java", "C"]
+  },
+  {
+    title: "Database",
+    tools: ["MongoDB", "MySQL", "PostgreSQL", "Firebase"]
+  },
+  {
+    title: "Tools & Others",
+    tools: ["Git", "VS Code", "Figma", "Vercel", "GitHub"]
+  }
 ];
